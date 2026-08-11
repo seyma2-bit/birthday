@@ -1,0 +1,373 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #f38aaa;
+
+    font-family: Arial, sans-serif;
+
+    overflow: hidden;
+}
+
+.birthday-card {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* =========================
+   PASTA ALANI
+========================= */
+
+.cake-area {
+    position: relative;
+
+    width: 360px;
+    height: 330px;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.cake {
+    position: relative;
+
+    width: 250px;
+    height: 190px;
+
+    margin-bottom: 45px;
+}
+
+/* =========================
+   PASTA KATLARI
+========================= */
+
+.cake-layer {
+    position: absolute;
+
+    left: 50%;
+
+    width: 230px;
+
+    transform: translateX(-50%);
+
+    background: #9c6969;
+
+    border-radius: 9px;
+
+    box-shadow:
+        inset 0 5px rgba(255,255,255,0.08),
+        inset 0 -5px rgba(80,40,40,0.15);
+
+    opacity: 0;
+
+    animation: layerAppear 600ms ease-out forwards;
+}
+
+.layer-bottom {
+    bottom: 10px;
+    height: 48px;
+
+    animation-delay: 1.2s;
+}
+
+.layer-middle {
+    bottom: 58px;
+    height: 48px;
+
+    animation-delay: 1.8s;
+}
+
+.layer-top {
+    bottom: 106px;
+    height: 48px;
+
+    animation-delay: 2.4s;
+}
+
+@keyframes layerAppear {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* =========================
+   KREM
+========================= */
+
+.icing {
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 137px;
+
+    width: 235px;
+    height: 30px;
+
+    transform: translateX(-50%);
+
+    background: #fffafa;
+
+    border-radius: 15px 15px 8px 8px;
+
+    z-index: 5;
+
+    opacity: 0;
+
+    animation: icingAppear 700ms 3s ease-out forwards;
+}
+
+@keyframes icingAppear {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* Akan krema */
+
+.drip {
+    position: absolute;
+
+    top: 15px;
+
+    width: 18px;
+
+    background: #fffafa;
+
+    border-radius: 0 0 12px 12px;
+
+    transform-origin: top;
+
+    animation: dripGrow 500ms 3.4s ease-out forwards;
+
+    transform: scaleY(0);
+}
+
+.drip1 {
+    left: 30px;
+    height: 55px;
+}
+
+.drip2 {
+    left: 83px;
+    height: 30px;
+}
+
+.drip3 {
+    left: 135px;
+    height: 48px;
+}
+
+.drip4 {
+    right: 28px;
+    height: 35px;
+}
+
+@keyframes dripGrow {
+    to {
+        transform: scaleY(1);
+    }
+}
+
+/* =========================
+   MUM
+========================= */
+
+.candle {
+    position: absolute;
+
+    z-index: 10;
+
+    left: 50%;
+
+    bottom: 150px;
+
+    width: 7px;
+    height: 48px;
+
+    background: #fff;
+
+    border-radius: 5px;
+
+    transform: translateX(-50%) translateY(-300px);
+
+    animation:
+        candleEntrance 600ms 5.5s ease-out forwards;
+}
+
+@keyframes candleEntrance {
+    to {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* =========================
+   ALEV
+========================= */
+
+.flame {
+    position: absolute;
+
+    left: 50%;
+    top: -23px;
+
+    width: 14px;
+    height: 22px;
+
+    transform: translateX(-50%) scale(0);
+
+    background: #fff2a8;
+
+    border-radius: 50% 50% 50% 50%;
+
+    box-shadow:
+        0 0 8px #fff,
+        0 0 18px #ffd86b;
+
+    animation:
+        flameAppear 400ms 6.1s ease-out forwards,
+        flameMove 700ms 6.5s ease-in-out infinite alternate;
+}
+
+@keyframes flameAppear {
+    to {
+        transform: translateX(-50%) scale(1);
+    }
+}
+
+@keyframes flameMove {
+    from {
+        transform: translateX(-50%) scale(1);
+    }
+
+    to {
+        transform: translateX(-50%) scale(0.85) rotate(3deg);
+    }
+}
+
+/* =========================
+   TABAK
+========================= */
+
+.plate {
+    position: absolute;
+
+    bottom: 38px;
+
+    width: 280px;
+    height: 7px;
+
+    background: #fff;
+
+    border-radius: 50%;
+
+    opacity: 0;
+
+    animation: plateAppear 500ms 1s ease-out forwards;
+}
+
+@keyframes plateAppear {
+    from {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+}
+
+/* =========================
+   YAZILAR
+========================= */
+
+h1 {
+    position: relative;
+
+    margin-top: -5px;
+
+    color: white;
+
+    font-size: 28px;
+
+    font-weight: 400;
+
+    font-style: italic;
+
+    opacity: 0;
+
+    animation: textAppear 800ms 6.3s ease-out forwards;
+}
+
+p {
+    margin-top: 18px;
+
+    color: white;
+
+    font-size: 22px;
+
+    font-style: italic;
+
+    opacity: 0;
+
+    animation: textAppear 800ms 6.6s ease-out forwards;
+}
+
+@keyframes textAppear {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   TELEFON
+========================= */
+
+@media (max-width: 500px) {
+
+    .cake-area {
+        transform: scale(0.8);
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 19px;
+    }
+}
